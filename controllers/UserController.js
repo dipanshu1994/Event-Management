@@ -52,9 +52,9 @@ module.exports = {
 					}
 	
 					user.token.push(access_token)
-					user.markModified('token');
+					//user.markModified('token');
 					user.save(function(err){
-						if (err) throw err;
+						if (err) console.log(err);
 						res.json({
 							status:"success",
 							message:"user access_token generate.",
@@ -70,9 +70,11 @@ module.exports = {
 					
 					var access_token = {'access_token':token,expire:expireDate}
 					user.token.push(access_token)
-					user.markModified('token');
+					//user.markModified('token');
 					user.save(function(err){
-						if (err) throw err;
+						if (err) {
+							console.log(err);
+						}
 						res.json({
 							status:"success",
 							message:"user access_token generate.",

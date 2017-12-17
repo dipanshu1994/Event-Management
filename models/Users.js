@@ -6,7 +6,7 @@ var userSchema = new Schema({
 	email 		: { type: String },
 	password 	: { type: String },
 	role 		: { type: String },
-	token 		: { type: Array }
+	token 		: { type: Array, usePushEach: true }
 });
 
 var User = mongoose.model('User', userSchema);

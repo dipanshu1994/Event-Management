@@ -14,7 +14,11 @@ router.use(bodyParser.urlencoded({ extended: true }));
 
 router.post('/login', userController.login);
 router.post('/signup',userController.signUp);
+
+router.get('/event',eventController.getEventList);
 router.post('/event', isLoggedIn, requireRole('organisers'), eventController.createEvent);
+router.put('/event',isLoggedIn,requireRole('organisers'), eventController.updateEvent);
+router.delete('/event',isLoggedIn,requireRole('organisers'),eventController.deleteEvent);
 
 
 passport.use(new BearerStrategy(
